@@ -1,10 +1,10 @@
 const buttonColours = ['red', 'blue', 'green', 'yellow']
 const gamePattern = []
 const userClickedPattern = []
-const level = 0
+let level = 0
 let started = false
 
-$(document).keyPress(function() {
+$(document).keypress(function() {
     if (!started) {
         $('#level-title').text('Level ' + level)
         nextSequence()
@@ -28,7 +28,7 @@ function nextSequence() {
     level ++
     $('level-title').text('Level ' + level)
     
-    $('#' + name).fadeIn(100).fadeOut(100).fadeIn(100)
+    $('#' + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
 
     playSound(randomChosenColour)
 }
