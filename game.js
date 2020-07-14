@@ -46,16 +46,7 @@ function checkAnswer(currentLevel) {
 
     }
 }
-// _4
-// for (let i=0; i<10; i++) { 
-//    task(i); 
-// } 
-  
-// function task(i) { 
-//   setTimeout(function() { 
-//       // Add tasks to do 
-//   }, 2000 * i); 
-// } 
+
 
 function playSequence() {
     for (i = 0; i < gamePattern.length; i++){
@@ -82,9 +73,6 @@ function nextSequence() {
     $('#level-title').text('Level ' + level)
     
     playSequence()
-    // $('#' + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
-
-    // playSound(randomChosenColour)
 }
 
 function playSound(name) {
