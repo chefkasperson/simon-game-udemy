@@ -1,6 +1,6 @@
 const buttonColours = ['red', 'blue', 'green', 'yellow']
 const gamePattern = []
-const userClickedPattern = []
+let userClickedPattern = []
 let level = 0
 let started = false
 
@@ -19,9 +19,25 @@ $('btn').click(function() {
     playSound(userChosenColour)
 
     animatePress(userChosenColour)
+
+    checkAnswer(userClickedPattern.length - 1)
 })
 
+function checkAnswer(currentLevel) {
+    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+        console.log('success')
+        if (userClickedPattern.length === gamePattern.length) {
+            setTimeout(function() {
+                nextSequence()
+            }, 1000)
+        }
+    } else {
+        console.log('wrong')
+    }
+}
+
 function nextSequence() {
+    userClickedPattern = []
     const randomNumber = Math.floor(Math.random() * 4)
     const randomChosenColour = buttonColours[randomNumber]
     gamePattern.push(randomChosenColour)
