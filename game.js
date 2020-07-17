@@ -54,10 +54,20 @@ function nextSequence() {
     gamePattern.push(randomChosenColour)
     level += 1
     $('#level-title').text('Level ' + level)
-    
-    $('#' + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
 
-    playSound(randomChosenColour)
+    for (let i=0; i<gamePattern.length; i++) {
+        playSequence(i)
+    }
+    
+    function playSequence(i) {
+        setTimeout(function() {
+            $('#' + gamePattern[i]).fadeIn(100).fadeOut(100).fadeIn(100)
+            playSound(gamePattern[i])
+        }, 300 * i)
+    }
+    // $('#' + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100)
+
+    // playSound(randomChosenColour)
 }
 
 function playSound(name) {
